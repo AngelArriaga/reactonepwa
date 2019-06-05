@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 
 import { Paper, Button, Typography, Link } from "@material-ui/core";
-import C9TextField from "./components/textFields/textField/text-field-v1";
-import C9PasswordField from "./components/textFields/password-field-v1/password-field-v1";
+import C9TextField from "../../components/textFields/textField/text-field-v1";
+import C9PasswordField from "../../components/textFields/password-field-v1/password-field-v1";
 
 
 const styles = theme => ({
@@ -24,10 +24,15 @@ const styles = theme => ({
   },
   mb0:{
     marginBottom:'1rem'
+  },
+  navOne:{
+    display:'flex',
+    justifyContent:'space-between',
+    padding:'.5rem'
   }
 });
 
-class App extends Component {
+class Password extends Component {
   constructor() {
     super();
 
@@ -42,25 +47,28 @@ class App extends Component {
     return (
       <div className={classes.mainApp}>
         <Paper className={classes.paperCls}>
-          <C9TextField className={classes.mt1} label="User Name"/>
-          <C9PasswordField className={classes.mt1} label="Password"/>
+          <C9TextField className={classes.mt1} label="Email"/>
           <div>
-          <Typography align={"right"} className={classes.mt1}>
-              <Link href={""} variant="body2" className={classes.link}>
-                {'Forgot Password ?'}
-              </Link>
-            </Typography>
+          
           </div>
           <Button variant="contained" color="primary" className={[classes.button, classes.mt1].join(" ")}>
-        Sign In
-      </Button>
-
-      <Typography align={"center"} className={[classes.mt0, classes.mb0].join(' ')}>
-            Become a member:  
+          Reset Password
+        </Button>
+<div className={classes.navOne}>
+<Typography align={"left"} className={[classes.mt0, classes.mb0].join(' ')}>
               <Link href={""} variant="body2" className={classes.link}>
-                {'  Create your Account'}
+                {'Register'}
               </Link>
             </Typography>
+
+            <Typography align={"right"} className={[classes.mt0, classes.mb0].join(' ')}>
+              <Link href={""} variant="body2" className={classes.link}>
+                {'Sign In'}
+              </Link>
+            </Typography>
+</div>
+     
+            
 
         </Paper>
       </div>
@@ -68,4 +76,4 @@ class App extends Component {
   }
 }
 
-export default withStyles(styles)(App);
+export default withStyles(styles)(Password);

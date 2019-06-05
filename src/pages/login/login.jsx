@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 
 import { Paper, Button, Typography, Link } from "@material-ui/core";
-import C9TextField from "./components/textFields/textField/text-field-v1";
-import C9PasswordField from "./components/textFields/password-field-v1/password-field-v1";
+import C9TextField from "../../components/textFields/textField/text-field-v1";
+import C9PasswordField from "../../components/textFields/password-field-v1/password-field-v1";
 
 
 const styles = theme => ({
@@ -24,10 +24,13 @@ const styles = theme => ({
   },
   mb0:{
     marginBottom:'1rem'
+  },
+  hasCursor:{
+      cursor:'pointer'
   }
 });
 
-class App extends Component {
+class Login extends Component {
   constructor() {
     super();
 
@@ -45,8 +48,8 @@ class App extends Component {
           <C9TextField className={classes.mt1} label="User Name"/>
           <C9PasswordField className={classes.mt1} label="Password"/>
           <div>
-          <Typography align={"right"} className={classes.mt1}>
-              <Link href={""} variant="body2" className={classes.link}>
+          <Typography align={"right"} className={[classes.mt1,classes.hasCursor].join(' ')}>
+              <Link  variant="body2"  onClick={this.props.passwordEvent}>
                 {'Forgot Password ?'}
               </Link>
             </Typography>
@@ -55,9 +58,9 @@ class App extends Component {
         Sign In
       </Button>
 
-      <Typography align={"center"} className={[classes.mt0, classes.mb0].join(' ')}>
+      <Typography align={"center"} className={[classes.mt0, classes.mb0, classes.hasCursor].join(' ')} >
             Become a member:  
-              <Link href={""} variant="body2" className={classes.link}>
+              <Link  variant="body2" >
                 {'  Create your Account'}
               </Link>
             </Typography>
@@ -68,4 +71,4 @@ class App extends Component {
   }
 }
 
-export default withStyles(styles)(App);
+export default withStyles(styles)(Login);

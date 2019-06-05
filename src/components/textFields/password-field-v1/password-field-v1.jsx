@@ -86,7 +86,7 @@ class C9PasswordField extends Component {
                     <InputLabel htmlFor="adornment-password" className={classes.inputField}>{this.props.label}</InputLabel>
                     <Input className={classes.inputField}
                         id="adornment-password"
-                        t
+                        
                         type={this.state.isPasswordVisible ? "text" : "password"}
                         value={this.state.textValue}
                         onChange={this.setValue}
