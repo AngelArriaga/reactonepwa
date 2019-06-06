@@ -31,6 +31,12 @@ class Landing extends Component {
 
   }
 
+  handleSignInRequest_Click = () => {
+    this.setState({
+      page: 1
+    })
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -38,7 +44,7 @@ class Landing extends Component {
       <div className={classes.mainApp}>
           {
               this.state.page === 1 ? <Login passwordEvent={this.handlePasswordRequest_Click} /> :
-              <Password />
+              <Password signInEvent={this.handleSignInRequest_Click}/>
           }
         
       </div>

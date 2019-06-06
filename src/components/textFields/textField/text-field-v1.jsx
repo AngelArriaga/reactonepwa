@@ -91,7 +91,7 @@ class C9TextField extends Component {
           <InputLabel htmlFor="adornment-password" className={classes.inputField}>{this.props.label}</InputLabel>
           <Input className={classes.inputField}
             id="adornment-password"
-            type="text"
+            type="email"
             // type={this.state.hasError ? "text" : "password"}
             value={this.state.textValue}
             onChange={this.setValue}

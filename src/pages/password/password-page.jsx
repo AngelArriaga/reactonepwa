@@ -29,6 +29,9 @@ const styles = theme => ({
     display:'flex',
     justifyContent:'space-between',
     padding:'.5rem'
+  },
+  hasCursor:{
+      cursor:'pointer'
   }
 });
 
@@ -55,14 +58,14 @@ class Password extends Component {
           Reset Password
         </Button>
 <div className={classes.navOne}>
-<Typography align={"left"} className={[classes.mt0, classes.mb0].join(' ')}>
-              <Link href={""} variant="body2" className={classes.link}>
+<Typography align={"left"} className={[classes.mt0, classes.mb0,classes.hasCursor].join(' ')}>
+              <Link  variant="body2" className={classes.link}>
                 {'Register'}
               </Link>
             </Typography>
 
-            <Typography align={"right"} className={[classes.mt0, classes.mb0].join(' ')}>
-              <Link href={""} variant="body2" className={classes.link}>
+            <Typography align={"right"} className={[classes.mt0, classes.mb0,classes.hasCursor].join(' ')} onClick={this.props.signInEvent}>
+              <Link  variant="body2" className={classes.link}>
                 {'Sign In'}
               </Link>
             </Typography>
