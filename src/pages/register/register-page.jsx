@@ -26,10 +26,15 @@ const styles = theme => ({
   },
   hasCursor: {
     cursor: "pointer"
-  }
+  },
+  navOne:{
+    display:'flex',
+    justifyContent:'space-between',
+    padding:'.5rem'
+  },
 });
 
-class Login extends Component {
+class Register extends Component {
   constructor() {
     super();
 
@@ -42,40 +47,49 @@ class Login extends Component {
     const { classes } = this.props;
 
     return (
-      <div>
+      <div >
         <Paper className={classes.paperCls}>
           <C9TextField className={classes.mt1} label="User Name" />
           <C9PasswordField className={classes.mt1} label="Password" />
-          <div>
-            <Typography
-              align={"right"}
-              className={[classes.mt1, classes.hasCursor].join(" ")}
-            >
-              <Link variant="body2" onClick={this.props.passwordEvent}>
-                {"Forgot Password ?"}
-              </Link>
-            </Typography>
-          </div>
+          <C9PasswordField className={classes.mt1} label="Confirm Password" />
+          
           <Button
             variant="contained"
             color="primary"
             className={[classes.button, classes.mt1].join(" ")}
           >
-            Sign In
+            Create Account
           </Button>
 
-          <Typography
-            align={"center"}
-            className={[classes.mt0, classes.mb0, classes.hasCursor].join(" ")}
-          >
-            Become a member:
-            <Link variant="body2" onClick={this.props.registerEvent}>{"  Create your Account"}</Link>
-          </Typography>
+          <div className={classes.navOne}>
+            <Typography
+              align={"left"}
+              className={[classes.mt0, classes.mb0, classes.hasCursor].join(
+                " "
+              )}
+              onClick={this.props.passwordEvent}
+            >
+              <Link variant="body2" className={classes.link}>
+                {"Forgot Password ?"}
+              </Link>
+            </Typography>
 
+            <Typography
+              align={"right"}
+              className={[classes.mt0, classes.mb0, classes.hasCursor].join(
+                " "
+              )}
+              onClick={this.props.signInEvent}
+            >
+              <Link variant="body2" className={classes.link}>
+                {"Sign In"}
+              </Link>
+            </Typography>
+          </div>
         </Paper>
       </div>
     );
   }
 }
 
-export default withStyles(styles)(Login);
+export default withStyles(styles)(Register);
